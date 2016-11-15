@@ -42,16 +42,19 @@ fn main() {
 
         if let Ok(path) = entry {
 
-            let mut crc = crc::new(path.to_str().unwrap());
-            match crc.checksum() {
-                Ok(checksum) => {
-                    println!(" {:?}", path.display());
-                    println!("   -> CRC32: {:X}", checksum.crc32);
-                    println!("   -> CRC64: {:X}", checksum.crc64);
-                }
-                Err(e) => {
-                    println!(" {:?}", path.display());
-                    println!("{}", e);
+            if path.is_file() {
+
+                let mut crc = crc::new(path.to_str().unwrap());
+                match crc.checksum() {
+                    Ok(checksum) => {
+                        println!(" {:?}", path.display());
+                        println!("   -> CRC32: {:X}", checksum.crc32);
+                        println!("   -> CRC64: {:X}", checksum.crc64);
+                    }
+                    Err(e) => {
+                        println!(" {:?}", path.display());
+                        println!("{}", e);
+                    }
                 }
             }
         }
