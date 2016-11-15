@@ -11,8 +11,8 @@ use checksum::crc::Crc as crc;
 fn main() {
     let path_arg_name = "path";
     let regular_expression = "expression";
-    let args = App::new("test-glob")
-        .about("Testing glob module")
+    let args = App::new("check-integrity")
+        .about("Check integrity of files.")
         .setting(AppSettings::ArgRequiredElseHelp)
         .arg(Arg::with_name(path_arg_name)
             .help("path to the top directory"))
