@@ -7,3 +7,4 @@ authors = ["Cédric Bonhomme <cedric@cedricbonhomme.org>"]
 clap = "2.15.0"
 glob = "0.2"
 checksum = "0.2.0"
+csv = "0.15"
