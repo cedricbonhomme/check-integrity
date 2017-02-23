@@ -38,7 +38,7 @@ fn main() {
     };
 
     //let mut vec = Vec::new();
-    let path_csv = Path::new("/home/cedric/output.csv");
+    let path_csv = Path::new("./output.csv");
     let mut writer = csv::Writer::from_file(path_csv).unwrap();
     
     path.push_str("/");
