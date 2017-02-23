@@ -57,7 +57,7 @@ fn main() {
                         println!("   -> CRC32: {:X}", checksum.crc32);
                         println!("   -> CRC64: {:X}", checksum.crc64);
                     
-                        writer.encode((path.to_str(), checksum.crc64.to_string())).unwrap();
+                        writer.encode((path.to_str(), checksum.crc64.to_str())).unwrap();
 
                     }
                     Err(e) => {
