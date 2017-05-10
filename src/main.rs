@@ -40,7 +40,7 @@ fn main() {
     //let mut vec = Vec::new();
     let path_csv = Path::new("./output.csv");
     let mut writer = csv::Writer::from_file(path_csv).unwrap();
-    
+
     path.push_str("/");
     path.push_str(expression);
     println!("Looking for {:?}\n", path);
@@ -56,8 +56,8 @@ fn main() {
                         println!(" {:?}", path.display());
                         println!("   -> CRC32: {:X}", checksum.crc32);
                         println!("   -> CRC64: {:X}", checksum.crc64);
-                    
-                        writer.encode((path.to_str(), checksum.crc64.to_str())).unwrap();
+
+                        writer.encode((path.to_str(), checksum.crc64.to_string())).unwrap();
 
                     }
                     Err(e) => {
