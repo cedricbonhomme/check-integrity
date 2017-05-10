@@ -2,10 +2,9 @@
 
 
 ~~~~shell
-$ echo 'export PATH="~/.cargo/bin:$PATH"' >> .bashrc
+$ echo 'export PATH="~/.cargo/bin:$PATH"' >> ~/.bashrc
 $ cargo build --release
 $ cargo install
-
 
 $ check-integrity
 check-integrity
