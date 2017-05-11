@@ -13,13 +13,16 @@ use checksum::crc::Crc as crc;
 fn main() {
     let path_arg_name = "path";
     let regular_expression = "expression";
+    let output_path = "~";
     let args = App::new("check-integrity")
         .about("Check integrity of files.")
         .setting(AppSettings::ArgRequiredElseHelp)
         .arg(Arg::with_name(path_arg_name)
-            .help("path to the top directory"))
+            .help("Path to the top directory"))
         .arg(Arg::with_name(regular_expression)
-            .help("regular expression"))
+            .help("Regular expression."))
+        .arg(Arg::with_name(output_path)
+            .help("Path of the output."))
         .get_matches();
 
     let mut path = match args.value_of(path_arg_name) {
@@ -30,6 +33,10 @@ fn main() {
         Some(expression) => expression,
         None => panic!("You didn't supply a regular expression"),
     };
+    let output = match args.value_of(output_path) {
+        Some(expression) => expression,
+        None => "~",
+    };
 
     let options = MatchOptions {
         case_sensitive: false,
@@ -38,7 +45,7 @@ fn main() {
     };
 
     //let mut vec = Vec::new();
-    let path_csv = Path::new("./output.csv");
+    let path_csv = Path::new(output);
     let mut writer = csv::Writer::from_file(path_csv).unwrap();
 
     path.push_str("/");
