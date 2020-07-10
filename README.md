@@ -1,8 +1,7 @@
 
 
 
-~~~~shell
-$ echo 'export PATH="~/.cargo/bin:$PATH"' >> ~/.bashrc
+```bash
 $ cargo build --release
 $ cargo install
 
@@ -29,5 +28,4 @@ Looking for "/home/cedric/**/*.pdf"
  "/home/cedric/downloads/616.pdf"
    -> CRC32: 79F732FC
    -> CRC64: F636195053D3BC65
-
-~~~~
+```
